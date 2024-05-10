@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://3pf6p2dr1e3m"]
+
+[ext_resource type="Texture2D" uid="uid://bad87mvl0efvp" path="res://asset/Idle/Battlemage Idle1.png" id="1_bvv0r"]
+[ext_resource type="Script" path="res://scripts/player.cs" id="1_qmbsf"]
+[ext_resource type="Texture2D" uid="uid://dpjl31p3iog6k" path="res://asset/Idle/Battlemage Idle2.png" id="2_ndy1p"]
+[ext_resource type="Texture2D" uid="uid://cxi5hywqdg2wu" path="res://asset/Idle/Battlemage Idle3.png" id="3_cilke"]
+[ext_resource type="Texture2D" uid="uid://1biecsglkpss" path="res://asset/Idle/Battlemage Idle4.png" id="4_11ay1"]
+[ext_resource type="Texture2D" uid="uid://dq2fb5yw0ixfe" path="res://asset/Idle/Battlemage Idle5.png" id="5_y43xk"]
+[ext_resource type="Texture2D" uid="uid://tt2epuwjlvkc" path="res://asset/Idle/Battlemage Idle6.png" id="6_42igq"]
+[ext_resource type="Texture2D" uid="uid://bs7vw8git7sx8" path="res://asset/Idle/Battlemage Idle7.png" id="7_xswnx"]
+[ext_resource type="Texture2D" uid="uid://b6xqili0ujhqu" path="res://asset/Idle/Battlemage Idle8.png" id="8_fic3k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_odcf0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bvv0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ndy1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cilke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_11ay1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y43xk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_42igq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xswnx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fic3k")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t836v"]
+radius = 5.0
+height = 28.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_qmbsf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_odcf0")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.0486572
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_t836v")

@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://pijsvjx5neye"]
+
+[ext_resource type="PackedScene" uid="uid://3pf6p2dr1e3m" path="res://scenes/player.tscn" id="1_tvhfx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixcph"]
+size = Vector2(285.75, 12)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_yjs05"]
+a = Vector2(-1, -29)
+b = Vector2(-1, 105)
+
+[node name="game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_tvhfx")]
+position = Vector2(0, -81)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(82, 46)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 64.0
+offset_top = -73.0
+offset_right = 104.0
+offset_bottom = -50.0
+text = "start"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 59.0
+offset_top = 16.0
+offset_right = 99.0
+offset_bottom = 39.0
+text = "end
+"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(87.5, 51)
+shape = SubResource("RectangleShape2D_ixcph")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(88, -97)
+shape = SubResource("RectangleShape2D_ixcph")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-53, -62)
+shape = SubResource("SegmentShape2D_yjs05")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(230, -60)
+shape = SubResource("SegmentShape2D_yjs05")
